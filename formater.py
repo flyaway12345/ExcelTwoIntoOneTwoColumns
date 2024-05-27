@@ -1,11 +1,13 @@
 import pandas as pd
 #paste your path here, make sure to have double backslashes
 #EX: data_file_folder = "C:\\Users\\evanh\\Documents\\EcelSheets"
-data_file_folder = "C:\\Users\\evanh\\Documents\\EcelSheets"
+data_file_folder = ""
 #Paste THe Name Of Your First Workbook without the .xlsx extesnion 
-workbook_one_name = "Workbook1"
+#EX: workbook_one_name = "Workbook1"
+workbook_one_name = ""
 #Paste THe Name Of Your Second Workbook without the .xlsx extesnion 
-workbook_two_name = "Workbook2"
+#EX: workbook_two_name = "Workbook2"
+workbook_two_name = ""
 
 #Output File Name
 master_file_name = 'masterfile'
@@ -34,4 +36,4 @@ df_master.to_excel('C:\\Users\\evanh\\Documents\\EcelSheets\\'+ master_file_name
 #Comapres Changes In console
 # print(dataframe1)
 # print(dataframe2)
-print(df_master)
+# print(df_master)
