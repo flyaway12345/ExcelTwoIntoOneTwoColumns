@@ -1,14 +1,13 @@
-import pandas as pd #pip instal pandas
-import os
+import pandas as pd
 
 data_file_folder = "C:\\Users\\evanh\\Documents\\EcelSheets"
+dataframe1 = pd.read_excel(data_file_folder + '\\' + 'Workbook1' + '.xlsx')
+dataframe2 = pd.read_excel(data_file_folder + '\\' + 'Workbook2' + '.xlsx')
+master_file_name = 'masterfile'
 
-df = []
-for file in os.listdir(data_file_folder):
-    if file.endswith('.xlsx'):
-        print('Loading File {0}...'.format(file))
-        df.append(pd.read_excel(os.path.join(data_file_folder,file), sheet_name='Sheet1'))
+df_master = pd.merge_ordered(dataframe1,dataframe2,on='Product',fill_method='ffill').fillna(0)
 
-
-df_master = pd.concat(df,axis=0)
-df_master.to_excel('C:\\Users\\evanh\\Documents\\EcelSheets\\masterfile.xlsx', index=False)
+df_master.to_excel('C:\\Users\\evanh\\Documents\\EcelSheets\\'+ master_file_name +'.xlsx', index=False)
+print(dataframe1)
+print(dataframe2)
+print(df_master)
