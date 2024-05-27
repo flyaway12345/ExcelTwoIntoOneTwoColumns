@@ -10,15 +10,13 @@ workbook_two_name = "Workbook2"
 #Output File Name
 master_file_name = 'masterfile'
 
-#Column A Name
-column_one_name = "Product"
-
-#Column B Name
-column_two_name = "Quantity"
-
 #Gets Data From Workbooks
 dataframe1 = pd.read_excel(data_file_folder + '\\' + workbook_one_name + '.xlsx')
 dataframe2 = pd.read_excel(data_file_folder + '\\' + workbook_two_name + '.xlsx')
+
+#Gets Column Names
+column_one_name = dataframe1.columns.array[0]
+column_two_name = dataframe1.columns.array[1]
 
 #Merges Workbooks
 df_master = pd.merge_ordered(dataframe1,dataframe2,on=column_one_name,fill_method='ffill').fillna(0) #fillna(0) replaces NaN Values With Zero
